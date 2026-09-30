@@ -1,147 +1,178 @@
-# AttendEase - Digital Attendance & QR Registration System
+# 📋 AttendEase - Sistem Pendaftaran Kehadiran Digital & Kod QR
 
-[![Stage](https://img.shields.io/badge/PRD-Stage%201%20v2.0-blue.svg)](#)
-[![React](https://img.shields.io/badge/React-19.0-61dafb.svg?logo=react)](#)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg?logo=typescript)](#)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38bdf8.svg?logo=tailwindcss)](#)
-[![Vite](https://img.shields.io/badge/Vite-8.x-646cff.svg?logo=vite)](#)
+[![Stage](https://img.shields.io/badge/Versi-Stage%201%20PRD%20v2.0-blue.svg)](#)
+[![Status](https://img.shields.io/badge/Status-Sedia%20Digunakan-emerald.svg)](#)
+[![Live Demo](https://img.shields.io/badge/Demo-Buka%20Aplikasi-6366f1.svg)](https://attendease-digital-attendance-qr-registration-sys.ai.studio)
 
-**AttendEase** is a digital attendance check-in and QR registration system designed for enterprise conferences, summits, and corporate board meetings. It replaces paper sign-in sheets with a touch-friendly mobile registration flow, cryptographic digital signature capture, administrative management dashboard, and print-ready compliance documents.
+> **AttendEase** ialah sistem kehadiran digital tanpa kertas untuk mesyuarat korporat, seminar, persidangan, dan program syarikat. Tetamu hanya perlu imbas kod QR menggunakan telefon pintar, isi maklumat ringkas, dan turunkan tandatangan secara digital. Urusetia pula boleh pantau senarai kehadiran secara langsung, cetak poster QR, dan jana borang kehadiran rasmi berformat PDF.
 
 ---
 
-## 🌟 Key Features
+## 🌐 Pautan Demo Langsung (Live Demo)
 
-### 1. 📱 Mobile-First Guest Registration
-- **Active Event Banner**: Live time counter, pulsing check-in status, event date, and venue details.
-- **Dynamic Event Selector**: Switch between events or meetings directly from the guest view.
-- **Form Validation**: Strict client-side validation for Full Name, Organization/Company, Email, and Phone Number.
-- **Internal Staff Details (Optional)**: Support for internal corporate meetings with Staff ID and Department fields.
-- **Digital Signature Pad**: High-DPI responsive canvas supporting both mobile touch drawing and desktop mouse drawing with clear/reset functionality.
-- **Instant Confirmation Screen**: Confirmation ID generation, summary of registered details, and quick "Register Another Guest" loop for kiosk or shared tablets.
+Anda boleh mencuba aplikasi ini secara terus di pelayar web tanpa perlu memasang apa-apa perisian:
 
-### 2. 🛡️ Protected Admin Portal
-- **Session Authentication**: Secured with password gate (default: `admin123`).
-- **Overview Metrics**:
-  - Total Check-Ins (real-time count across events).
-  - Active Events managed.
-  - Signatures Verified (100% mandatory validation).
-  - Local browser persistence engine.
-- **Live Search & Filter**: Instant filtering by event selector or live search across attendee names, companies, emails, staff numbers, and departments.
-- **Detailed Attendance Table**: View attendee records, timestamps, event association, and interactive signature thumbnail previews.
-- **Signature Zoom Viewer**: High-resolution modal preview for verifying signatures.
-- **Record Management**: Secure delete confirmation modal to prevent accidental data loss.
-- **Data Reseed Utility**: One-click reset to seed demo events and synthetic attendance records.
-
-### 3. 📄 A4 Printable QR Signage Layout
-- High-contrast geometric QR code SVG layout.
-- Clear bilingual instructional call-to-action: *"Sila Scan Di Sini Untuk Mendaftar Kehadiran"*.
-- Event title, venue, and date badge formatting.
-- Native browser print layout (`window.print()`) styled specifically for standard A4 paper display stands.
-
-### 4. 📑 Official Corporate Attendance Sheet (PDF Template)
-- Faithfully modeled after enterprise corporate attendance sheets (e.g. Media Prima / NSTP format).
-- Boxed header with `MEETING`, `DATE/TIME`, and `VENUE` fields.
-- Standard corporate grid: `NO | NAME | STAFF NO | DEPT | EMAIL | SIGN`.
-- **Embedded Digital Signatures**: Neatly places the guest's drawn signature into the `SIGN` column.
-- Print-ready and exportable to PDF with blank reserve rows for physical walk-ins.
-
-### 5. 📊 CSV Data Export
-- 1-click export of attendance data into clean CSV files formatted for Excel, Google Sheets, or corporate HR systems.
+👉 **[https://attendease-digital-attendance-qr-registration-sys.ai.studio](https://attendease-digital-attendance-qr-registration-sys.ai.studio)**
 
 ---
 
-## 🚀 Tech Stack
+## 🔑 Maklumat Akses Pentadbir (Admin)
 
-- **Framework**: React 19 (TypeScript)
-- **Bundler & Dev Server**: Vite
-- **Styling**: Tailwind CSS v4
-- **Icons**: Lucide React
-- **Signature Capture**: HTML5 Canvas API (Pointer / Touch / Mouse)
-- **Data Persistence**: Browser LocalStorage & SessionStorage
+Untuk mengakses dashboard dan senarai kehadiran:
+- **Pautan / Tab**: Klik butang **"Admin Portal"** di bahagian atas kanan skrin.
+- **Kata Laluan Admin (Default)**: `admin123`
 
 ---
 
-## 🛠️ Getting Started
+## ✨ Apa Yang Sistem Ini Boleh Lakukan?
 
-### Prerequisites
+### 1. 📱 Pendaftaran Tetamu Melalui Telefon (Guest View)
+- **Mesra Telefon Pintar**: Reka bentuk yang kemas, moden, dan mudah diisi di mana-mana skrin telefon.
+- **Pilihan Program / Acara**: Tetamu atau urusetia boleh memilih acara yang sedang berlangsung daripada menu dropdown.
+- **Borang Ringkas & Pantas**:
+  - Nama Penuh
+  - Nama Syarikat / Organisasi
+  - Alamat Emel
+  - Nombor Telefon
+  - *(Pilihan tambahan untuk kakitangan dalaman)*: No. Pekerja (Staff No) dan Jabatan (Dept).
+- **Pad Tandatangan Digital**: Boleh conteng/turunkan tandatangan terus di atas skrin sentuh telefon atau menggunakan tetikus (mouse) di komputer. Terdapat butang *Clear Signature* jika ingin tanda tangan semula.
+- **Skrin Pengesahan Berjaya**: Memaparkan kad ringkasan pendaftaran bersama **No. ID Pengesahan** unik dan butang untuk mendaftar tetamu seterusnya.
 
-Ensure you have [Node.js](https://nodejs.org/) (version 18 or higher) installed on your machine.
+---
 
-### Installation
+### 2. 🛡️ Portal Pentadbir & Urusetia (Admin Portal)
+- **Dilindungi Kata Laluan**: Hanya urusetia yang memasukkan kata laluan (`admin123`) boleh melihat rekod kehadiran.
+- **Ringkasan Statistik Segera**:
+  - Jumlah Kehadiran (Total Check-Ins).
+  - Jumlah Acara Aktif.
+  - Peratusan Tandatangan Disahkan (100% wajib).
+  - Status Penyimpanan Data (Persistent LocalStorage).
+- **Carian Segera & Penapis Acara**: Boleh tapis mengikut acara tertentu dan cari nama, emel, syarikat, atau no. pekerja dalam sekelip mata.
+- **Jadual Senarai Kehadiran Penuh**:
+  - Memaparkan susunan nombor, nama peserta, syarikat, emel, telefon, masa pendaftaran, dan gambar tandatangan sebenar.
+- **Lihat Tandatangan Lebih Jelas (Zoom)**: Klik pada gambar tandatangan untuk paparan saiz besar.
+- **Padam Rekod Kehadiran**: Butang padam dengan pengesahan amaran untuk elakkan terpadam tanpa sengaja.
+- **Muat Semula Data Contoh**: Butang *Reset to Demo Synthetic Data* untuk memuatkan semula data contoh bagi tujuan demonstrasi.
 
-1. Clone this repository:
+---
+
+### 3. 🖨️ Cetak Poster Kod QR Saiz A4 (QR Signage Sheet)
+- Urusetia boleh menjana helaian poster promosi A4 yang siap sedia untuk diletakkan di kaunter pendaftaran.
+- Mengandungi:
+  - Kod QR berdefinisi tinggi.
+  - Nama Acara, Tarikh & Masa, serta Lokasi Bilik / Dewan.
+  - Arahan jelas: *"Sila Scan Di Sini Untuk Mendaftar Kehadiran"*.
+- Boleh terus dicetak ke kertas A4 menggunakan butang **Print to A4**.
+
+---
+
+### 4. 📑 Borang Kehadiran Rasmi Format PDF (Media Prima / NSTP Template)
+- Disediakan khusus mengikut format borang kehadiran mesyuarat korporat (seperti format Media Prima / NSTP).
+- Mempunyai kotak butiran di bahagian atas:
+  - `MEETING` (Nama Mesyuarat / Acara)
+  - `DATE/TIME` (Tarikh & Waktu Mesyuarat)
+  - `VENUE` (Lokasi / Bilik Mesyuarat)
+- Jadual rasmi lengkap dengan lajur:  
+  `NO` | `NAME` | `STAFF NO` | `DEPT` | `EMAIL` | `SIGN`
+- **Tandatangan digital setiap peserta dicetak secara automatik** di dalam kotak `SIGN`.
+- Boleh dicetak terus ke pencetak fizikal atau disimpan sebagai fail **PDF** (*Print / Save as PDF*).
+
+---
+
+### 5. 📊 Eksport ke Fail Excel / CSV
+- Klik butang **Export to CSV** untuk memuat turun semua rekod kehadiran ke dalam fail `.csv`.
+- Sesuai dibuka di Microsoft Excel, Google Sheets, atau dimuat naik ke sistem HR syarikat.
+
+---
+
+## 📖 Panduan Penggunaan Mudah
+
+### A. Untuk Tetamu / Peserta
+1. Imbas kod QR yang dipaparkan di kaunter majlis menggunakan kamera telefon.
+2. Pastikan nama acara yang tertera adalah betul.
+3. Isikan Nama, Syarikat, Emel, dan No. Telefon.
+4. Turunkan tandatangan anda di dalam kotak tandatangan digital.
+5. Tekan butang biru **"Submit Registration"**.
+6. Simpan No. ID Pengesahan yang tertera di skrin sebagai rujukan.
+
+### B. Untuk Urusetia / Penganjur Majlis
+1. Buka laman web AttendEase di komputer riba atau tablet urusetia.
+2. Di bar atas, klik **"Admin Portal"**.
+3. Masukkan kata laluan `admin123` dan klik **Unlock Dashboard**.
+4. **Cipta Acara Baru**: Klik butang **"+ Create New Event"** dan isi butiran majlis.
+5. **Cetak Poster QR**: Klik butang **"Print A4 QR Sheet"** dan letakkan di meja pendaftaran.
+6. **Selepas Majlis Selesai**:
+   - Klik **"Official Sheet (PDF)"** untuk mencetak senarai kehadiran rasmi bersama tandatangan lengkap.
+   - Atau klik **"Export to CSV"** untuk simpanan laporan digital.
+
+---
+
+## 💻 Cara Pasang di Komputer Sendiri (Untuk Developer)
+
+Jika anda ingin menjalankan projek ini di komputer tempatan anda:
+
+### Keperluan Asas
+- Pastikan komputer anda telah dipasang **Node.js** (versi 18 atau ke atas).
+
+### Langkah Pemasangan:
+
+1. **Salin (Clone) repositori ini:**
    ```bash
    git clone https://github.com/your-username/attendease.git
    cd attendease
    ```
 
-2. Install dependencies:
+2. **Pasang pakej modul (dependencies):**
    ```bash
    npm install
    ```
 
-3. Start the local development server:
+3. **Jalankan server pembangunan:**
    ```bash
    npm run dev
    ```
 
-4. Open your browser and navigate to:
-   ```
-   http://localhost:3000
-   ```
+4. **Buka di pelayar web:**
+   Layari alamat `http://localhost:3000` di pelayar Chrome/Edge/Safari anda.
 
 ---
 
-## 🔑 Default Credentials & Demo Setup
+## 🛠️ Perisian & Teknologi Digunakan
 
-- **Admin Password**: `admin123`
-- **Initial Demo Events**:
-  - `Petronas Technology & Innovation Summit 2025` (KLCC Hall 4)
-  - `Procurement Process Awareness 2024 - NSTP` (Meeting Room, GCAS Dept, Balai Berita KL)
-  - `National Digital Economy Board Roundtable` (Putrajaya Marriott Hotel)
-- To reset sample attendees and events at any time, click **"Reset to Demo Synthetic Data"** at the bottom of the Admin Portal.
-
----
-
-## 📋 Available Scripts
-
-| Command | Description |
-| :--- | :--- |
-| `npm run dev` | Starts Vite development server on port 3000 |
-| `npm run build` | Builds the production bundle in `/dist` |
-| `npm run preview`| Previews the production build locally |
-| `npm run lint` | Runs TypeScript type checking (`tsc --noEmit`) |
+- **React 19 & TypeScript**: Pembinaan komponen antaramuka moden yang pantas dan selamat.
+- **Tailwind CSS v4**: Penggayaan reka bentuk visual yang kemas dan responsif.
+- **Vite**: Alat pembina (bundler) yang amat laju.
+- **Lucide React**: Ikon grafik antaramuka profesional.
+- **HTML5 Canvas API**: Pengesanan sentuhan jari & tetikus untuk tandatangan digital berdefinisi tinggi.
+- **LocalStorage & SessionStorage**: Penyimpanan rekod secara automatik dalam pelayar tanpa perlukan pangkalan data rumit.
 
 ---
 
-## 📁 Project Structure
+## 📂 Struktur Fail Projek
 
 ```
-├── index.html                   # HTML entry point with metadata
-├── package.json                 # Project dependencies & scripts
-├── tsconfig.json                # TypeScript compiler configuration
-├── vite.config.ts               # Vite configuration with Tailwind CSS plugin
+├── index.html                       # Fail utama HTML
+├── package.json                     # Senarai perisian dan arahan npm
 ├── src/
-│   ├── main.tsx                 # React DOM mount point
-│   ├── App.tsx                  # Core app router & state coordinator
-│   ├── types.ts                 # TypeScript data contracts & interfaces
-│   ├── index.css                # Tailwind CSS imports & print stylesheets
+│   ├── main.tsx                     # Titik mula React
+│   ├── App.tsx                      # Halaman induk, navigasi & pengurusan status
+│   ├── types.ts                     # Definisi jenis data (TypeScript)
+│   ├── index.css                    # Penggayaan global & arahan cetakan A4/PDF
 │   ├── utils/
-│   │   └── storage.ts           # LocalStorage helpers, seed data & CSV generator
+│   │   └── storage.ts               # Pengurusan storan, data sampel & eksport CSV
 │   └── components/
-│       ├── GuestView.tsx        # Mobile-friendly guest registration & signature canvas
-│       ├── AdminPortal.tsx      # Admin dashboard, analytics cards & attendee table
-│       ├── CreateEventModal.tsx # Modal to register new meetings or summits
-│       ├── PrintQRModal.tsx     # A4 QR Code signage printable sheet
-│       ├── PrintAttendanceSheetModal.tsx # Corporate attendance sheet (PDF template)
-│       ├── SignatureModal.tsx   # Enlarged signature modal viewer
-│       ├── DeleteModal.tsx      # Record deletion confirmation modal
-│       └── Toast.tsx            # Floating toast notification feedback
+│       ├── GuestView.tsx            # Borang pendaftaran tetamu & pad tandatangan
+│       ├── AdminPortal.tsx          # Papan pemuka admin & jadual kehadiran
+│       ├── CreateEventModal.tsx     # Tetingkap tambah acara baru
+│       ├── PrintQRModal.tsx         # Tetingkap poster kod QR A4
+│       ├── PrintAttendanceSheetModal.tsx # Borang kehadiran format PDF (Media Prima/NSTP)
+│       ├── SignatureModal.tsx       # Paparan besar tandatangan
+│       ├── DeleteModal.tsx          # Tetingkap pengesahan padam rekod
+│       └── Toast.tsx                # Notifikasi maklum balas di skrin
 ```
 
 ---
 
-## 📜 License
+## 📄 Lesen
 
-This project is licensed under the Apache License 2.0.
+Hak cipta terpelihara di bawah **Apache License 2.0**. Sesuai digunakan untuk tujuan komersial, akademik, mahupun pembangunan dalaman organisasi.
