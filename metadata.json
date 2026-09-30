@@ -1,0 +1,6 @@
+{
+  "name": "AttendEase - Digital Attendance & QR Registration System",
+  "description": "Digital attendance check-in and QR registration system with signature capture and administrative dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
